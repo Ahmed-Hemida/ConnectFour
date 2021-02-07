@@ -1,0 +1,23 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 19, 2020, 10:07:14 PM
+    Author     : kar
+*/
+.root {
+    -fx-background-color:#92a8d1;
+   
+}
+/*.Scene{
+    -fx-background-color: #00008b;
+}*/
+/*.label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00008B;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}*/
+
