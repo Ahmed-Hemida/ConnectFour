@@ -6,7 +6,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.util.Duration;
 import javafx.animation.TranslateTransition;
-
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -18,10 +18,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
-
 public class connect_4 extends Application {
-    
-
+        
       final  int radius=40;
       final  int row=7;
       final  int colum=6;
@@ -69,27 +67,28 @@ public class connect_4 extends Application {
             public void handle(MouseEvent event) {
             piece c = setcircle((int)event.getSceneX());
             root.getChildren().add(c);
-//            player_1.cel();
-//            if(player_1.win()){
-//                alert(player_1.name);
-//                if(playAgain()){
-//                    play(primaryStage);
-//                }else
-//                    Platform.exit();
-//            }else if(player_2.win()){
-//                alert(player_2.name);
-//                if(playAgain()){
-//                    play(primaryStage);
-//                }else
-//                    Platform.exit();
-//            }else if(player_1.stock==0&&player_2.stock==0){
-//                alert("symmetry");
-//                if(playAgain()){
-//                    play(primaryStage);
-//                }else
-//                    Platform.exit();
-//                
-//            }
+            
+            player_1.cel();
+            if(player_1.win()||player_2.win()){
+                if(player_1.win())
+                alert(player_1.name);
+                else
+                    alert(player_2.name);
+                boolean  playAgain=playAgain();
+                if(playAgain){
+                    play(primaryStage);
+                }else
+                    Platform.exit();
+            }
+            if(player_1.stock==0&&player_2.stock==0){
+                alert("symmetry");
+                 boolean  playAgain=playAgain();
+                if(playAgain){
+                    play(primaryStage);
+                }else
+                    Platform.exit();
+                
+            }
         }});
         
         
@@ -110,7 +109,7 @@ public class connect_4 extends Application {
                 alert.setTitle("connect 4");
                 alert.setHeaderText("Look Dear");
                 alert.setContentText("Do you play  ?");
-                alert.showAndWait();
+//                alert.showAndWait();
                 Optional<ButtonType> result = alert.showAndWait();
                   return result.get() == ButtonType.OK ;  
                   
