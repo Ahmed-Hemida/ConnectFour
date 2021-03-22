@@ -5,6 +5,8 @@
  */
 package connect_4;
 
+import javafx.scene.control.TextField;
+
 
 /**
  *
@@ -31,6 +33,10 @@ public class player {
         for (int j = 0; j <row  ; j++)
         cell[i][j] = '-';
         
+    }
+
+    player(TextField text2, String yellow) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     public piece playPiece(int xposition ,int ycolum){
         int xcolum = xposition/(radius*2);
