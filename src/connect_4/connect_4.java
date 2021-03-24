@@ -57,7 +57,7 @@ public class connect_4 extends Application {
     }
     
     public void display(Stage primaryStage1){            
-        image1 = new ImageView("connect4.PNG");
+        image1 = new ImageView("img/form_img/connect4.PNG");
         image1.setFitWidth(scren_width-500);
         image1.setFitHeight(scren_hight-50);
         Signin.getChildren().add(image1);
@@ -125,7 +125,7 @@ public class connect_4 extends Application {
     }
     
     public void play(Stage primarystatge1) {
-        image1 = new ImageView("connect4.PNG");
+        image1 = new ImageView("img/form_img/connect4.PNG");
         image1.setFitWidth(scren_width);
         image1.setFitHeight(scren_hight);
         root.getChildren().add(image1);
@@ -166,7 +166,7 @@ public class connect_4 extends Application {
                 if(c!=null)
                 root.getChildren().add(c);
 
-                player_1.cel();
+//                player_1.cel();
                 if (player_1.win() || player_2.win()) {
                     if (player_1.win()) {
                         alert(player_1.name);
