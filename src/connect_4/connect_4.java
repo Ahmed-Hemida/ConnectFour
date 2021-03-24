@@ -17,6 +17,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -35,26 +37,38 @@ public class connect_4 extends Application {
     final int scren_hight = colum * radius * 2;
     int ycolum[] = new int[row];
     static boolean switch_pleyer = true;
-    player player_1 = new player("ahmed", "red");
-    player player_2 = new player("eslam", "yellow");
+    player player_1 ;
+    player player_2 ;
    
     Group Signin = new Group();
     Scene Sign = new Scene(Signin,300,400,Color.WHITESMOKE);
-    Label label1,label2,label3,label4;
+    Label label,label1,label2,label3,label4;
     TextField text1,text2;
+    Image image;
+    ImageView image1;
     Button btn;
     Rectangle rect;
     Group root = new Group();
-    
+    Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
+    String player_name1,player_name2;
     @Override
     public void start(Stage primaryStage) {
-       display(primaryStage);
+        display(primaryStage);
     }
     
-    public void display(Stage primaryStage1){
+    public void display(Stage primaryStage1){            
+        image1 = new ImageView("connect4.PNG");
+        image1.setFitWidth(scren_width-500);
+        image1.setFitHeight(scren_hight-50);
+        Signin.getChildren().add(image1);
+        label = new Label("Welcome !");
+        label.setLayoutX(100);
+        label.setLayoutY(10);
+        label.setTextFill(Color.BLACK);
+        label.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
         label1 = new Label("player 1 : ");
         label1.setLayoutX(80);
-        label1.setLayoutY(50);
+        label1.setLayoutY(60);
         label1.setTextFill(Color.RED);
         label1.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
         text1 = new TextField();
@@ -63,38 +77,42 @@ public class connect_4 extends Application {
         text1.setPrefSize(160, 30);
         label2 = new Label("player 2 : ");
         label2.setLayoutX(80);
-        label2.setLayoutY(130);
-        label2.setTextFill(Color.BLACK);
+        label2.setLayoutY(140);
+        label2.setTextFill(Color.YELLOW);
         label2.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
         text2 = new TextField();
         text2.setLayoutX(80);
-        text2.setLayoutY(160);
+        text2.setLayoutY(170);
         text2.setPrefSize(160, 30);
         label3 = new Label();
         label3.setLayoutX(scren_width-200);
         label3.setLayoutY(30);
         label3.setTextFill(Color.RED);
         label3.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-        root.getChildren().add(label3);
+        //root.getChildren().add(label3);
         label4 = new Label();
         label4.setLayoutX(scren_width-200);
         label4.setLayoutY(60);
         label4.setTextFill(Color.YELLOW);
         label4.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-        root.getChildren().add(label4);
+        //root.getChildren().add(label4);
         btn = new Button("Start Game");
         btn.setLayoutX(110);
-        btn.setLayoutY(210);
+        btn.setLayoutY(220);
         btn.setPrefSize(100, 40);
+        btn.setTextFill(Color.BLUE);
+//        btn.setStyle(STYLESHEET_MODENA(
+//
+//        ));
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(event.getSource()==btn){
-                    String player1,player2;
-                    player1 = text1.getText();
-                    player2 = text2.getText();
-                    label3.setText("player1 : " + player1);
-                    label4.setText("player2 : " + player2);
+                if(event.getSource()== btn){
+                    //String player1,player2;
+                    player_name1 = text1.getText();
+                    player_name2 = text2.getText();
+                    label3.setText("player1 : " + player_name1);
+                    label4.setText("player2 : " + player_name2);
                     text1.setText(" "); text2.setText(" ");
                     play(primaryStage1);
                 }else {
@@ -103,22 +121,23 @@ public class connect_4 extends Application {
                 }
             }
         });
-        
-        Signin.getChildren().addAll(label1,label2,text1,text2,btn);
+        Signin.getChildren().addAll(label,label1,label2,text1,text2,btn);
         primaryStage1.setScene(Sign);
         primaryStage1.show();
     }
     
-    public void play(Stage primaryStage) {
-        //player_1 = new player("ahmed", "yellow");
-        //player_2 = new player("eslam", "red");
+    public void play(Stage primarystatge1) {
+        image1 = new ImageView("connect4.PNG");
+        image1.setFitWidth(scren_width);
+        image1.setFitHeight(scren_hight);
+        root.getChildren().add(image1);
+        root.getChildren().add(label3);
+        root.getChildren().add(label4);
+        player_1 = new player(player_name1, "yellow");
+        player_2 = new player(player_name2, "red");
         //Group root = new Group();
-        rect = new Rectangle(900,900,Color.WHITE);
-        rect.setLayoutX(scren_width - 240);
-        rect.setLayoutY(0);
-        //root.getChildren().add(rect);
         Group circles = new Group();
-        Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
+       // Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
         Circle[][] circle = new Circle[row][colum];
         for (int z = 0; z < row; z++) {
             for (int i = 0; i < colum; i++) {
@@ -142,6 +161,7 @@ public class connect_4 extends Application {
             ycolum[z] = colum - 1;
         }
         root.getChildren().add(circles);
+       
         scene.setOnMouseReleased(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
                 piece c = setcircle((int) event.getSceneX());
@@ -156,7 +176,7 @@ public class connect_4 extends Application {
                     }
                     boolean playAgain = playAgain();
                     if (playAgain) {
-                        play(primaryStage);
+                        play(primarystatge1);
                     } else {
                         Platform.exit();
                     }
@@ -165,7 +185,7 @@ public class connect_4 extends Application {
                     alert("symmetry");
                     boolean playAgain = playAgain();
                     if (playAgain) {
-                        play(primaryStage);
+                        play(primarystatge1);
                     } else {
                         Platform.exit();
                     }
@@ -174,8 +194,8 @@ public class connect_4 extends Application {
             }
         });
 
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        primarystatge1.setScene(scene);
+        primarystatge1.show();
     }
 
     public void alert(String name) {
@@ -192,7 +212,7 @@ public class connect_4 extends Application {
         alert.setTitle("connect 4");
         alert.setHeaderText("Look Dear");
         alert.setContentText("Do you play  ?");
-//                alert.showAndWait();
+//      alert.showAndWait();
         Optional<ButtonType> result = alert.showAndWait();
         return result.get() == ButtonType.OK;
 

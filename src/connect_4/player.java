@@ -18,26 +18,24 @@ public class player {
       final  int colum=7;
       final int pieces_num = row*(colum-1)/2;
       int stock=pieces_num;
-      private final char[][] cell =  new char[colum][row];
+      private final char[][] cell =  new char[colum][row]; 
       piece[] pie=new piece[pieces_num];
-    String name;
-    String color;
+      String name;
+      String color;
     char var;
      int piece_id=0;
     public player(String name,String color) {
         
         this.name=name;
         this.color=color;
-        var =color.charAt(0);
+        var =color.charAt(0); 
         for (int i = 0; i <colum; i++)
         for (int j = 0; j <row  ; j++)
         cell[i][j] = '-';
         
     }
 
-    player(TextField text2, String yellow) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     public piece playPiece(int xposition ,int ycolum){
         int xcolum = xposition/(radius*2);
         piece cir=new piece(radius,color);
@@ -54,25 +52,25 @@ public class player {
 //    return pie[piece_id];
     }
     public boolean win(){
-         return vertical(var)||horizontal( var)||diagonal(var);
+         return vertical(var)||horizontal(var)||diagonal(var);
     } 
-     public boolean horizontal(char var ){
+     public boolean horizontal(char var){
         for (int c = 0; c < colum; ++c){
             int count = 0;
         for (int r = 0; r < row; ++r) {
           if (cell[c][r] == var) {
              ++count;
-          if (count == 4) 
+            if (count == 4) 
                 return true;
-          }
-          else 
+            }
+            else 
              count = 0; // reset and count again if not consecutive
-        }
+            }
               // win
-        }
-        return false;
+            }
+            return false;
      }
-      public boolean vertical(char var){
+     public boolean vertical(char var){
      for (int r = 0; r < row; ++r){
             int count = 0;
           for (int c = 0; c < colum; ++c) {
@@ -91,7 +89,7 @@ public class player {
     } 
       public boolean diagonal(char var){
          return leftHorizontalDiagonal(var)|| leftVerticalDiagonal(var);
-             }
+      }
       public boolean leftHorizontalDiagonal(char var){
             // top left frist 4 vertical diagonal 
            for (int c = 0; c < colum; ++c){
@@ -133,9 +131,9 @@ public class player {
       
    public void cel(){
        
-         for (int i = 0; i < colum ; i++){
+      for (int i = 0; i < colum ; i++){
       for (int j = 0; j <row; j++)
-       System.out.print(" | "+cell[i][j]+" | ");
+       System.out.print(" | "+ cell[i][j] +" | ");
       System.out.println("\n");
         }
      System.out.println("\n *************************");
