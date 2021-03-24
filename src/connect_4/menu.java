@@ -38,26 +38,24 @@ import javafx.util.Duration;
  */
 public class menu {
     static final int radius = 40;
-   static final int row = 7;
-   static final int colum = 6;
-  static  final int scren_width = row * radius * 2+250;
-   static final int scren_hight = colum * radius * 2;
-   static int ycolum[] = new int[row];
-   static  boolean switch_pleyer = true;
-   static player player_1 ;
-    static player player_2 ;
-   
-   static Group Signin = new Group();
-  static  Scene Sign = new Scene(Signin,300,400,Color.WHITESMOKE);
-  static  Label label,label1,label2,label3,label4;
-  static  TextField text1,text2;
-  static  Image image;
-   static ImageView image1;
-  static  Button btn;
+    static final int row = 7;
+    static final int colum = 6;
+    static final int scren_width = row * radius * 2 + 250;
+    static final int scren_hight = colum * radius * 2;
+    static int ycolum[] = new int[row];
+    static boolean switch_pleyer = true;
+    static player player_1;
+    static player player_2;
+    static Group Signin = new Group();
+    static Scene Sign = new Scene(Signin, 300, 400, Color.WHITESMOKE);
+    static Label label, label1, label2, label3, label4;
+    static TextField text1, text2;
+    static ImageView image1;
+    static Button btn;
     Rectangle rect;
-   static Group root = new Group();
-   static Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
-    static String player_name1,player_name2;
+    static Group root = new Group();
+    static Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
+    static String player_name1, player_name2;
     
      public static void display(Stage primaryStage1){            
         image1 = new ImageView("img/form_img/connect4.PNG");
@@ -92,29 +90,22 @@ public class menu {
         label3.setLayoutY(30);
         label3.setTextFill(Color.RED);
         label3.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-        //root.getChildren().add(label3);
         label4 = new Label();
         label4.setLayoutX(scren_width-200);
         label4.setLayoutY(60);
         label4.setTextFill(Color.YELLOW);
         label4.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-        //root.getChildren().add(label4);
         btn = new Button("Start Game");
         btn.setLayoutX(110);
         btn.setLayoutY(220);
         btn.setPrefSize(100, 40);
         btn.setTextFill(Color.BLUE);
-//        btn.setStyle(STYLESHEET_MODENA(
-//
-//        ));
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(event.getSource()== btn){
-                   // player_name1 = text1.getText();
-                   // player_name2 = text2.getText();
+                if(event.getSource()== btn){         
                     player_name1 = ((text1.getText().equals(""))?"player_1":text1.getText());
-                    player_name2 = ((text2.getText().equals(""))?"player_2":text2.getText());;
+                    player_name2 = ((text2.getText().equals(""))?"player_2":text2.getText());
                     label3.setText("player1 : " + player_name1);
                     label4.setText("player2 : " + player_name2);
                     text1.setText(" "); text2.setText(" ");
@@ -138,9 +129,7 @@ public class menu {
         root.getChildren().add(label4);
         player_1 = new player(player_name1, "red");
         player_2 = new player(player_name2, "Yellow");
-        //Group root = new Group();
         Group circles = new Group();
-        //Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
         Circle[][] circle = new Circle[row][colum];
         for (int z = 0; z < row; z++) {
             for (int i = 0; i < colum; i++) {
