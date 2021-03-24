@@ -49,7 +49,7 @@ public class connect_4 extends Application {
     Button btn;
     Rectangle rect;
     Group root = new Group();
-    Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
+    //Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
     String player_name1,player_name2;
     @Override
     public void start(Stage primaryStage) {
@@ -108,7 +108,6 @@ public class connect_4 extends Application {
             @Override
             public void handle(ActionEvent event) {
                 if(event.getSource()== btn){
-                    //String player1,player2;
                     player_name1 = text1.getText();
                     player_name2 = text2.getText();
                     label3.setText("player1 : " + player_name1);
@@ -116,7 +115,6 @@ public class connect_4 extends Application {
                     text1.setText(" "); text2.setText(" ");
                     play(primaryStage1);
                 }else {
-                    //platform.exit();
                     System.out.println("You should enter your data");
                 }
             }
@@ -137,7 +135,7 @@ public class connect_4 extends Application {
         player_2 = new player(player_name2, "red");
         //Group root = new Group();
         Group circles = new Group();
-       // Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
+        Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
         Circle[][] circle = new Circle[row][colum];
         for (int z = 0; z < row; z++) {
             for (int i = 0; i < colum; i++) {
