@@ -111,8 +111,10 @@ public class menu {
             @Override
             public void handle(ActionEvent event) {
                 if(event.getSource()== btn){
-                    player_name1 = text1.getText();
-                    player_name2 = text2.getText();
+                   // player_name1 = text1.getText();
+                   // player_name2 = text2.getText();
+                    player_name1 = ((text1.getText().equals(""))?"player_1":text1.getText());
+                    player_name2 = ((text2.getText().equals(""))?"player_2":text2.getText());;
                     label3.setText("player1 : " + player_name1);
                     label4.setText("player2 : " + player_name2);
                     text1.setText(" "); text2.setText(" ");
