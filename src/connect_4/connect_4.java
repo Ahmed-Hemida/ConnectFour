@@ -176,7 +176,8 @@ public class connect_4 extends Application {
                     }
                     boolean playAgain = playAgain();
                     if (playAgain) {
-                        play(primarystatge1);
+//                        play(primarystatge1);
+                         display(primarystatge1);
                     } else {
                         Platform.exit();
                     }
@@ -185,7 +186,8 @@ public class connect_4 extends Application {
                     alert("symmetry");
                     boolean playAgain = playAgain();
                     if (playAgain) {
-                        play(primarystatge1);
+                         display(primarystatge1);
+//                        play(primarystatge1);
                     } else {
                         Platform.exit();
                     }
