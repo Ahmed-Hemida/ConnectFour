@@ -49,7 +49,7 @@ public class connect_4 extends Application {
     Button btn;
     Rectangle rect;
     Group root = new Group();
-    //Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
+    Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
     String player_name1,player_name2;
     @Override
     public void start(Stage primaryStage) {
@@ -131,11 +131,11 @@ public class connect_4 extends Application {
         root.getChildren().add(image1);
         root.getChildren().add(label3);
         root.getChildren().add(label4);
-        player_1 = new player(player_name1, "yellow");
-        player_2 = new player(player_name2, "red");
+        player_1 = new player(player_name1, "red");
+        player_2 = new player(player_name2, "Yellow");
         //Group root = new Group();
         Group circles = new Group();
-        Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
+        //Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
         Circle[][] circle = new Circle[row][colum];
         for (int z = 0; z < row; z++) {
             for (int i = 0; i < colum; i++) {
