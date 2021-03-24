@@ -37,11 +37,14 @@ import javafx.util.Duration;
  * @author kar
  */
 public class menu {
-    static final int radius = 40;
+    static final int radius =40;
    static final int row = 7;
    static final int colum = 6;
-  static  final int scren_width = row * radius * 2+250;
-   static final int scren_hight = colum * radius * 2;
+   static final int shift_bourd=110;
+//  static  final int scren_width = row * radius * 2+250;
+//   static final int scren_hight = colum * radius * 2;
+   static  final int scren_width = row * 50 *2 ;
+   static final int scren_hight =colum * 50  *2;
    static int ycolum[] = new int[row];
    static  boolean switch_pleyer = true;
    static player player_1 ;
@@ -129,7 +132,7 @@ public class menu {
     }
     
     public static void play(Stage primarystatge1) {
-        image1 = new ImageView("img/form_img/connect4.PNG");
+        image1 = new ImageView("img/form_img/bourd1.jpg");
         image1.setFitWidth(scren_width);
         image1.setFitHeight(scren_hight);
         root.getChildren().add(image1);
@@ -142,23 +145,23 @@ public class menu {
         //Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
         Circle[][] circle = new Circle[row][colum];
         for (int z = 0; z < row; z++) {
-            for (int i = 0; i < colum; i++) {
-                circle[z][i] = new Circle(radius, Color.web("white"));
-                circle[z][i].setStrokeType(StrokeType.OUTSIDE);
-                circle[z][i].setCenterX(radius);
-                circle[z][i].setCenterY(radius);
-                circle[z][i].setTranslateX(radius * 2 * z);
-                circle[z][i].setTranslateY(radius * 2 * i);
-                Light.Distant light = new Light.Distant();
-                light.setAzimuth(45);
-                light.setElevation(50);
-                light.setColor(Color.WHITE);
-                Lighting lighting = new Lighting();
-                lighting.setLight(light);
-                lighting.setSurfaceScale(5);
-                circle[z][i].setEffect(lighting);
-                circles.getChildren().add(circle[z][i]);
-            }
+//            for (int i = 0; i < colum; i++) {
+//                circle[z][i] = new Circle(radius, Color.web("white"));
+//                circle[z][i].setStrokeType(StrokeType.OUTSIDE);
+//                circle[z][i].setCenterX(radius);
+//                circle[z][i].setCenterY(radius);
+//                circle[z][i].setTranslateX(radius * 2 * z);
+//                circle[z][i].setTranslateY(radius * 2 * i);
+//                Light.Distant light = new Light.Distant();
+//                light.setAzimuth(45);
+//                light.setElevation(50);
+//                light.setColor(Color.WHITE);
+//                Lighting lighting = new Lighting();
+//                lighting.setLight(light);
+//                lighting.setSurfaceScale(5);
+//                circle[z][i].setEffect(lighting);
+//                circles.getChildren().add(circle[z][i]);
+//            }
 
             ycolum[z] = colum - 1;
         }
@@ -166,11 +169,12 @@ public class menu {
        
         scene.setOnMouseReleased(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
+                System.out.println("getSceneX : "+event.getSceneX()+"getSceney : "+event.getSceneY());
                 piece c = setcircle((int) event.getSceneX());
                 if(c!=null)
                 root.getChildren().add(c);
 
-//                player_1.cel();
+                player_1.cel();
                 if (player_1.win() || player_2.win()) {
                     if (player_1.win()) {
                         alert(player_1.name);
@@ -225,10 +229,13 @@ public class menu {
 
     public static piece setcircle(int x) {
         // final  int h_radius= radius/2;
-        int xcolum = (int) x / (radius * 2);
+        int xcolum = (int) (x -(shift_bourd))/ ((radius) * 2);
         if(xcolum<row){ 
-            int xposition = xcolum * (radius * 2);
-        int yposition = (radius * 2 * (ycolum[xcolum]));
+//            int xposition = xcolum * (radius * 2);
+             int xposition = ((xcolum *radius * 2));
+             int shift_y;
+//             if()
+        int yposition = ((radius) * 2 * (ycolum[xcolum]))+(shift_bourd);
         piece cir;
       
         if (switch_pleyer && ycolum[xcolum] >= 0) {
