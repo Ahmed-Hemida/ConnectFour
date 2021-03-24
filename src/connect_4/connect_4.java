@@ -163,6 +163,7 @@ public class connect_4 extends Application {
         scene.setOnMouseReleased(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
                 piece c = setcircle((int) event.getSceneX());
+                if(c!=null)
                 root.getChildren().add(c);
 
                 player_1.cel();
@@ -221,14 +222,17 @@ public class connect_4 extends Application {
     public piece setcircle(int x) {
         // final  int h_radius= radius/2;
         int xcolum = (int) x / (radius * 2);
-        int xposition = xcolum * (radius * 2);
+        if(xcolum<row){ 
+            int xposition = xcolum * (radius * 2);
         int yposition = (radius * 2 * (ycolum[xcolum]));
         piece cir;
+      
         if (switch_pleyer && ycolum[xcolum] >= 0) {
             cir = player_1.playPiece(xposition, ycolum[xcolum]);
         } else {
             cir = player_2.playPiece(xposition, ycolum[xcolum]);
         }
+           
         TranslateTransition gravity = new TranslateTransition(Duration.millis(3000), cir);
         gravity.setToY((yposition));
         ycolum[xcolum]--;
@@ -236,7 +240,9 @@ public class connect_4 extends Application {
         if (ycolum[xcolum] >= -1) {
             switch_pleyer = !switch_pleyer;
         }
-        return cir;
+        return cir; 
+        }
+        return null;
     }
 
     /**
