@@ -18,15 +18,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.Light;
-import javafx.scene.effect.Lighting;
+//import javafx.scene.effect.Light;
+//import javafx.scene.effect.Lighting;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.StrokeType;
+//import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -40,7 +40,7 @@ public class menu {
     static final int radius =40;
    static final int row = 7;
    static final int colum = 6;
-   static final int shift_bourd=110;
+   static final int shift_bourd=90;
 //  static  final int scren_width = row * radius * 2+250;
 //   static final int scren_hight = colum * radius * 2;
    static  final int scren_width = row * 50 *2 ;
@@ -229,8 +229,8 @@ public class menu {
 
     public static piece setcircle(int x) {
         // final  int h_radius= radius/2;
-        int xcolum = (int) (x -(shift_bourd))/ ((radius) * 2);
-        if(xcolum<row){ 
+        int xcolum = (int) (x -(shift_bourd))/ ((radius* 2) );
+        if(x>shift_bourd){ 
 //            int xposition = xcolum * (radius * 2);
              int xposition = ((xcolum *radius * 2));
              int shift_y;

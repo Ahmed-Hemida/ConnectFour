@@ -13,14 +13,14 @@ import javafx.scene.control.TextField;
  * @author kar
  */
 public class player {
-     final  int radius=30;
+     final  int radius=40;
       final  int row=7;
       final  int colum=7;
-       static final int shift_bourd=110;
+       static final int shift_bourd=90;
       final int pieces_num = row*(colum-1)/2;
       int stock=pieces_num;
       private final char[][] cell =  new char[colum][row]; 
-      piece[] pie=new piece[pieces_num];
+//      piece[] pie=new piece[pieces_num];
       String name;
       String color;
     char var;
@@ -38,17 +38,18 @@ public class player {
 
     
     public piece playPiece(int xposition ,int ycolum){
-        int xcolum = xposition/((radius+20) * 2);
-        piece cir=new piece(radius,color);
+        int xcolum = xposition/((radius) * 2);
+        piece cir=new piece(radius-20,color);
         cir.setTranslateX(shift_bourd+(xposition));
         cir.setTranslateY(shift_bourd);
 //        pie[piece_id]=cir;
         if(ycolum>=0){
         cell[ycolum][xcolum] = var;
         stock--;
+        return cir;
         }
         
-      return cir;
+      return null;
 //System.out.println(piece_id);
 //    return pie[piece_id];
     }

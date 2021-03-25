@@ -17,8 +17,8 @@ public class piece  extends Circle{
       
     piece(int radius,String color){
     super(radius, Color.web(color,1));
-    this.setCenterX(0);
-    this.setCenterY(0);
+    this.setCenterX(radius*2);
+    this.setCenterY(radius*2);
    
     }
 }
