@@ -5,7 +5,7 @@
  */
 package connect_4;
 
-//import static connect_4.connect_4.switch_pleyer;
+
 import java.util.Optional;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -31,6 +31,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -44,13 +46,13 @@ public class game {
     static final int scren_hight = colum * radius * 2;
     static int ycolum[] = new int[row];
     static boolean switch_pleyer = true;
-    static Circle current_player = new Circle(15,Color.web("white"));
+    static Circle current_player ;
     
     static player player_1;
     static player player_2;
     static Group Signin = new Group();
     static Scene Sign = new Scene(Signin, 300, 400, Color.WHITESMOKE);
-    static Label label, label1, label2, label3, label4,current_play;
+    static Label label, label1, label2, label3, label4,last_play;
     static TextField text1, text2;
     static ImageView image1;
     static Button btn;
@@ -98,6 +100,19 @@ public class game {
         label4.setLayoutY(60);
         label4.setTextFill(Color.YELLOW);
         label4.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
+        
+        current_player = new Circle(15,Color.web("white"));
+         last_play = new Label("last player :");
+        last_play.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
+        last_play.setLayoutX((radius * 2*7)+40);
+       last_play.setLayoutY(100);
+        last_play.setTextFill(Color.WHITE);
+        last_play.setTranslateX(10);
+        last_play.setTranslateY(10);
+        current_player.setTranslateX((radius * 2*9)+45);
+        current_player.setTranslateY(120);
+        
+        
         btn = new Button("Start Game");
         btn.setLayoutX(110);
         btn.setLayoutY(220);
@@ -129,25 +144,10 @@ public class game {
     }
     
     public static void play_game(Stage primarystatge1) {
-//        image1 = new ImageView("img/form_img/connect4.PNG");
-//        image1.setFitWidth(scren_width);
-//        image1.setFitHeight(scren_hight);
-//        root.getChildren().add(image1);
 
         root.getChildren().add(label3);
         root.getChildren().add(label4);
-        
-         current_play = new Label("last player :");
-         current_play.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-        current_play.setLayoutX((radius * 2*7)+40);
-        current_play.setLayoutY(100);
-        current_play.setTextFill(Color.WHITE);
-        current_play.setTranslateX(10);
-        current_play.setTranslateY(10);
-        current_player.setTranslateX((radius * 2*9)+45);
-        current_player.setTranslateY(120);
-        
-        root.getChildren().add(current_play);
+        root.getChildren().add(last_play);
         root.getChildren().add(current_player);
         player_1 = new player(player_name1, "red");
         player_2 = new player(player_name2, "Yellow");
@@ -161,14 +161,6 @@ public class game {
                 circle[z][i].setCenterY(radius);
                 circle[z][i].setTranslateX(radius * 2 * z);
                 circle[z][i].setTranslateY(radius * 2 * i);
-//                Light.Distant light = new Light.Distant();
-//                light.setAzimuth(45);
-//                light.setElevation(50);
-//                light.setColor(Color.WHITE);
-//                Lighting lighting = new Lighting();
-//                lighting.setLight(light);
-//                lighting.setSurfaceScale(5);
-//                circle[z][i].setEffect(lighting);
                 circles.getChildren().add(circle[z][i]);
             }
 
@@ -192,9 +184,9 @@ public class game {
 //                player_1.cel();
                 if (player_1.win() || player_2.win()) {
                     if (player_1.win()) {
-                        alert(player_1.name);
+                        win(player_1.name,player_1,player_2);
                     } else {
-                        alert(player_2.name);
+                        win(player_2.name,player_1,player_2);
                     }
                     boolean playAgain = playAgain();
                     if (playAgain) {
@@ -205,7 +197,7 @@ public class game {
                     }
                 }
                 if (player_1.stock == 0 && player_2.stock == 0) {
-                    alert("symmetry");
+                    win("symmetry",player_1,player_2);
                     boolean playAgain = playAgain();
                     if (playAgain) {
                          display_form(primarystatge1);
@@ -223,13 +215,29 @@ public class game {
         primarystatge1.show();
     }
 
-    public static void alert(String name) {
+    public static void win(String name,player frist_player,player second_player) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("win");
         alert.setHeaderText("Look, " + name);
         alert.setContentText("you have a great win!");
         alert.showAndWait();
-        System.out.println(name + " is win");
+        
+          JSONObject json=new JSONObject();
+          
+         try {
+             json.put("frist_player",frist_player.name);
+             json.put("frist_player_color",frist_player.color);
+             json.put("second_player",second_player.name);
+             json.put("second_player_color",second_player.color);
+             json.put("status",name);
+             history.record_history(json);
+            
+         } catch (JSONException ex) {
+             System.err.println(ex);
+         }
+        
+         
+//        System.out.println(name + " is win");
     }
 
     public static boolean playAgain() {
