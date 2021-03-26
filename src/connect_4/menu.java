@@ -47,17 +47,17 @@ public class menu {
     static player player_1;
     static player player_2;
     static Group Signin = new Group();
-    static Scene Sign = new Scene(Signin, 300, 400, Color.WHITESMOKE);
+    static Scene Sign = new Scene(Signin, 30, 400, Color.WHITESMOKE);
     static Label label, label1, label2, label3, label4;
     static TextField text1, text2;
     static ImageView image1;
     static Button btn;
     Rectangle rect;
     static Group root = new Group();
-    static Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
+    static Scene scene = new Scene(root, scren_width, scren_hight, Color.WHITESMOKE);
     static String player_name1, player_name2;
     
-     public static void display(Stage primaryStage1){            
+    public static void display(Stage primaryStage1){            
         image1 = new ImageView("img/form_img/connect4.PNG");
         image1.setFitWidth(scren_width-500);
         image1.setFitHeight(scren_hight-50);
@@ -100,28 +100,27 @@ public class menu {
         btn.setLayoutY(220);
         btn.setPrefSize(100, 40);
         btn.setTextFill(Color.BLUE);
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if(event.getSource()== btn){         
-                    player_name1 = ((text1.getText().equals(""))?"player_1":text1.getText());
-                    player_name2 = ((text2.getText().equals(""))?"player_2":text2.getText());
-                    label3.setText("player1 : " + player_name1);
-                    label4.setText("player2 : " + player_name2);
-                    text1.setText(" "); text2.setText(" ");
-                    play(primaryStage1);
-                }else {
-                    System.out.println("You should enter your data");
-                }
+        //btn.setStyle("-fx-background-color: #00ff00");
+        btn.setOnAction((ActionEvent event) -> {
+            if(event.getSource()== btn){
+                player_name1 = ((text1.getText().equals(""))?"player_1":text1.getText());
+                player_name2 = ((text2.getText().equals(""))?"player_2":text2.getText());
+                label3.setText("player1 : " + player_name1);
+                label4.setText("player2 : " + player_name2);
+                text1.setText(" "); text2.setText(" ");
+                play(primaryStage1);
+            }else {
+                System.out.println("You should enter your data");
             }
         });
         Signin.getChildren().addAll(label,label1,label2,text1,text2,btn);
+        primaryStage1.setTitle("Form");
         primaryStage1.setScene(Sign);
         primaryStage1.show();
     }
     
     public static void play(Stage primarystatge1) {
-        image1 = new ImageView("img/form_img/connect4.PNG");
+        image1 = new ImageView("img/form_img/design.jpg");
         image1.setFitWidth(scren_width);
         image1.setFitHeight(scren_hight);
         root.getChildren().add(image1);
@@ -190,6 +189,7 @@ public class menu {
         });
 
         primarystatge1.setScene(scene);
+        primarystatge1.setTitle("connect_4");
         primarystatge1.show();
     }
 
