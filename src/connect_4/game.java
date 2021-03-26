@@ -44,11 +44,13 @@ public class game {
     static final int scren_hight = colum * radius * 2;
     static int ycolum[] = new int[row];
     static boolean switch_pleyer = true;
+    static Circle current_player = new Circle(15,Color.web("white"));
+    
     static player player_1;
     static player player_2;
     static Group Signin = new Group();
     static Scene Sign = new Scene(Signin, 300, 400, Color.WHITESMOKE);
-    static Label label, label1, label2, label3, label4;
+    static Label label, label1, label2, label3, label4,current_play;
     static TextField text1, text2;
     static ImageView image1;
     static Button btn;
@@ -134,6 +136,19 @@ public class game {
 
         root.getChildren().add(label3);
         root.getChildren().add(label4);
+        
+         current_play = new Label("last player :");
+         current_play.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
+        current_play.setLayoutX((radius * 2*7)+40);
+        current_play.setLayoutY(100);
+        current_play.setTextFill(Color.WHITE);
+        current_play.setTranslateX(10);
+        current_play.setTranslateY(10);
+        current_player.setTranslateX((radius * 2*9)+45);
+        current_player.setTranslateY(120);
+        
+        root.getChildren().add(current_play);
+        root.getChildren().add(current_player);
         player_1 = new player(player_name1, "red");
         player_2 = new player(player_name2, "Yellow");
         Group circles = new Group();
@@ -163,6 +178,13 @@ public class game {
        
         scene.setOnMouseReleased(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
+                
+                if(switch_pleyer){
+                current_player.setFill(Color.web("red"));
+                
+                }else{
+                    current_player.setFill(Color.web("Yellow"));
+                }
                 piece c = setcircle((int) event.getSceneX());
                 if(c!=null)
                 root.getChildren().add(c);
