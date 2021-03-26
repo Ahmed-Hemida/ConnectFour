@@ -47,7 +47,7 @@ public class menu {
     static player player_1;
     static player player_2;
     static Group Signin = new Group();
-    static Scene Sign = new Scene(Signin, 30, 400, Color.WHITESMOKE);
+    static Scene Sign = new Scene(Signin, 300, 400, Color.WHITESMOKE);
     static Label label, label1, label2, label3, label4;
     static TextField text1, text2;
     static ImageView image1;
