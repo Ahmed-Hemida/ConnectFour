@@ -36,7 +36,7 @@ import javafx.util.Duration;
  *
  * @author kar
  */
-public class menu {
+public class game {
     static final int radius = 40;
    static final int row = 7;
    static final int colum = 6;
@@ -56,14 +56,14 @@ public class menu {
   static  Button btn;
     Rectangle rect;
    static Group root = new Group();
-   static Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
+   static Scene scene = new Scene(root, scren_width, scren_hight, Color.BLACK);
     static String player_name1,player_name2;
     
-     public static void display(Stage primaryStage1){            
-        image1 = new ImageView("img/form_img/connect4.PNG");
-        image1.setFitWidth(scren_width-500);
-        image1.setFitHeight(scren_hight-50);
-        Signin.getChildren().add(image1);
+     public static void display_form(Stage primaryStage1){            
+//        image1 = new ImageView("img/form_img/connect4.PNG");
+//        image1.setFitWidth(scren_width-500);
+//        image1.setFitHeight(scren_hight-50);
+//        Signin.getChildren().add(image1);
         label = new Label("Welcome !");
         label.setLayoutX(100);
         label.setLayoutY(10);
@@ -117,7 +117,7 @@ public class menu {
                     label3.setText("player1 : " + player_name1);
                     label4.setText("player2 : " + player_name2);
                     text1.setText(" "); text2.setText(" ");
-                    play(primaryStage1);
+                    play_game(primaryStage1);
                 }else {
                     System.out.println("You should enter your data");
                 }
@@ -128,11 +128,11 @@ public class menu {
         primaryStage1.show();
     }
     
-    public static void play(Stage primarystatge1) {
-        image1 = new ImageView("img/form_img/connect4.PNG");
-        image1.setFitWidth(scren_width);
-        image1.setFitHeight(scren_hight);
-        root.getChildren().add(image1);
+    public static void play_game(Stage primarystatge1) {
+//        image1 = new ImageView("img/form_img/connect4.PNG");
+//        image1.setFitWidth(scren_width);
+//        image1.setFitHeight(scren_hight);
+//        root.getChildren().add(image1);
         root.getChildren().add(label3);
         root.getChildren().add(label4);
         player_1 = new player(player_name1, "red");
@@ -143,20 +143,20 @@ public class menu {
         Circle[][] circle = new Circle[row][colum];
         for (int z = 0; z < row; z++) {
             for (int i = 0; i < colum; i++) {
-                circle[z][i] = new Circle(radius, Color.web("white"));
+                circle[z][i] = new Circle(radius-10, Color.web("white"));
                 circle[z][i].setStrokeType(StrokeType.OUTSIDE);
                 circle[z][i].setCenterX(radius);
                 circle[z][i].setCenterY(radius);
                 circle[z][i].setTranslateX(radius * 2 * z);
                 circle[z][i].setTranslateY(radius * 2 * i);
-                Light.Distant light = new Light.Distant();
-                light.setAzimuth(45);
-                light.setElevation(50);
-                light.setColor(Color.WHITE);
-                Lighting lighting = new Lighting();
-                lighting.setLight(light);
-                lighting.setSurfaceScale(5);
-                circle[z][i].setEffect(lighting);
+//                Light.Distant light = new Light.Distant();
+//                light.setAzimuth(45);
+//                light.setElevation(50);
+//                light.setColor(Color.WHITE);
+//                Lighting lighting = new Lighting();
+//                lighting.setLight(light);
+//                lighting.setSurfaceScale(5);
+//                circle[z][i].setEffect(lighting);
                 circles.getChildren().add(circle[z][i]);
             }
 
@@ -180,7 +180,7 @@ public class menu {
                     boolean playAgain = playAgain();
                     if (playAgain) {
 //                        play(primarystatge1);
-                         display(primarystatge1);
+                         display_form(primarystatge1);
                     } else {
                         Platform.exit();
                     }
@@ -189,7 +189,7 @@ public class menu {
                     alert("symmetry");
                     boolean playAgain = playAgain();
                     if (playAgain) {
-                         display(primarystatge1);
+                         display_form(primarystatge1);
 //                        play(primarystatge1);
                     } else {
                         Platform.exit();

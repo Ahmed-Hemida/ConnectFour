@@ -11,7 +11,7 @@ public class connect_4 extends Application {
     public void start(Stage primaryStage) {
 //        menu men=new menu();
 //        men.display(primaryStage);
-          menu.display(primaryStage);
+          game.display_form(primaryStage);
 //        display(primaryStage);
     }
     

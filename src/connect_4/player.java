@@ -38,7 +38,7 @@ public class player {
     
     public piece playPiece(int xposition ,int ycolum){
         int xcolum = xposition/(radius*2);
-        piece cir=new piece(radius,color);
+        piece cir=new piece(radius-10,color);
         cir.setTranslateX(xposition);
         cir.setTranslateY(0);
 //        pie[piece_id]=cir;
