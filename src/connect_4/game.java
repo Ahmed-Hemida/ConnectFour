@@ -38,22 +38,20 @@ import javafx.util.Duration;
  */
 public class game {
     static final int radius = 40;
-   static final int row = 7;
-   static final int colum = 6;
-  static  final int scren_width = row * radius * 2+250;
-   static final int scren_hight = colum * radius * 2;
-   static int ycolum[] = new int[row];
-   static  boolean switch_pleyer = true;
-   static player player_1 ;
-    static player player_2 ;
-   
-   static Group Signin = new Group();
-  static  Scene Sign = new Scene(Signin,300,400,Color.WHITESMOKE);
-  static  Label label,label1,label2,label3,label4;
-  static  TextField text1,text2;
-  static  Image image;
-   static ImageView image1;
-  static  Button btn;
+    static final int row = 7;
+    static final int colum = 6;
+    static final int scren_width = row * radius * 2 + 250;
+    static final int scren_hight = colum * radius * 2;
+    static int ycolum[] = new int[row];
+    static boolean switch_pleyer = true;
+    static player player_1;
+    static player player_2;
+    static Group Signin = new Group();
+    static Scene Sign = new Scene(Signin, 300, 400, Color.WHITESMOKE);
+    static Label label, label1, label2, label3, label4;
+    static TextField text1, text2;
+    static ImageView image1;
+    static Button btn;
     Rectangle rect;
    static Group root = new Group();
    static Scene scene = new Scene(root, scren_width, scren_hight, Color.BLACK);
@@ -64,6 +62,7 @@ public class game {
 //        image1.setFitWidth(scren_width-500);
 //        image1.setFitHeight(scren_hight-50);
 //        Signin.getChildren().add(image1);
+
         label = new Label("Welcome !");
         label.setLayoutX(100);
         label.setLayoutY(10);
@@ -92,13 +91,11 @@ public class game {
         label3.setLayoutY(30);
         label3.setTextFill(Color.RED);
         label3.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-        //root.getChildren().add(label3);
         label4 = new Label();
         label4.setLayoutX(scren_width-200);
         label4.setLayoutY(60);
         label4.setTextFill(Color.YELLOW);
         label4.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
-        //root.getChildren().add(label4);
         btn = new Button("Start Game");
         btn.setLayoutX(110);
         btn.setLayoutY(220);
@@ -124,6 +121,7 @@ public class game {
             }
         });
         Signin.getChildren().addAll(label,label1,label2,text1,text2,btn);
+        primaryStage1.setTitle("Form");
         primaryStage1.setScene(Sign);
         primaryStage1.show();
     }
@@ -133,13 +131,12 @@ public class game {
 //        image1.setFitWidth(scren_width);
 //        image1.setFitHeight(scren_hight);
 //        root.getChildren().add(image1);
+
         root.getChildren().add(label3);
         root.getChildren().add(label4);
         player_1 = new player(player_name1, "red");
         player_2 = new player(player_name2, "Yellow");
-        //Group root = new Group();
         Group circles = new Group();
-        //Scene scene = new Scene(root, scren_width, scren_hight, Color.BLUE);
         Circle[][] circle = new Circle[row][colum];
         for (int z = 0; z < row; z++) {
             for (int i = 0; i < colum; i++) {
@@ -200,6 +197,7 @@ public class game {
         });
 
         primarystatge1.setScene(scene);
+        primarystatge1.setTitle("connect_4");
         primarystatge1.show();
     }
 
