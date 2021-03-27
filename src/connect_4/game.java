@@ -66,7 +66,9 @@ public class game {
 //        image1.setFitWidth(scren_width-500);
 //        image1.setFitHeight(scren_hight-50);
 //        Signin.getChildren().add(image1);
-
+            ImageView mv=new ImageView("2.jpg");
+            mv.setFitWidth(300);
+            mv.setFitHeight(500);
         label = new Label("Welcome !");
         label.setLayoutX(100);
         label.setLayoutY(10);
@@ -91,26 +93,26 @@ public class game {
         text2.setLayoutY(170);
         text2.setPrefSize(160, 30);
         label3 = new Label();
-        label3.setLayoutX(scren_width-200);
-        label3.setLayoutY(30);
-        label3.setTextFill(Color.RED);
+        label3.setLayoutX(scren_width-195);
+        label3.setLayoutY(35);
+        label3.setTextFill(Color.LIGHTSKYBLUE);
         label3.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
         label4 = new Label();
-        label4.setLayoutX(scren_width-200);
-        label4.setLayoutY(60);
-        label4.setTextFill(Color.YELLOW);
+        label4.setLayoutX(scren_width-195);
+        label4.setLayoutY(140);
+        label4.setTextFill(Color.RED);
         label4.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
         
         current_player = new Circle(15,Color.web("white"));
          last_play = new Label("last player :");
         last_play.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
         last_play.setLayoutX((radius * 2*7)+40);
-       last_play.setLayoutY(100);
-        last_play.setTextFill(Color.WHITE);
+       last_play.setLayoutY(240);
+        last_play.setTextFill(Color.VIOLET);
         last_play.setTranslateX(10);
         last_play.setTranslateY(10);
         current_player.setTranslateX((radius * 2*9)+45);
-        current_player.setTranslateY(120);
+        current_player.setTranslateY(260);
         
         
         btn = new Button("Start Game");
@@ -137,6 +139,8 @@ public class game {
                 }
             }
         });
+        Signin.getChildren().addAll(mv);
+
         Signin.getChildren().addAll(label,label1,label2,text1,text2,btn);
         primaryStage1.setTitle("Form");
         primaryStage1.setScene(Sign);
@@ -144,6 +148,10 @@ public class game {
     }
     
     public static void play_game(Stage primarystatge1) {
+        ImageView mv=new ImageView("1.jpg");
+    mv.setFitWidth(800);
+    mv.setFitHeight(500);
+             root.getChildren().addAll(mv);
 
         root.getChildren().add(label3);
         root.getChildren().add(label4);

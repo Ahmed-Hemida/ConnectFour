@@ -13,7 +13,7 @@ public class connect_4 extends Application {
     public void start(Stage primaryStage) {
         
 //        music mus=new music();
-//       music.run_music();
+       music.run_music();
        menu.men(primaryStage);
           
 //        display(primaryStage);
