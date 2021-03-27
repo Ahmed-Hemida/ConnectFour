@@ -1,17 +1,21 @@
 package connect_4;
 
+//import static java.awt.SystemColor.menu;
 import javafx.application.Application;
-
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+//import menu;
 
 public class connect_4 extends Application {
 
 
     @Override
     public void start(Stage primaryStage) {
-//        menu men=new menu();
-//        men.display(primaryStage);
-          game.display_form(primaryStage);
+        
+//        music mus=new music();
+//       music.run_music();
+       menu.men(primaryStage);
+          
 //        display(primaryStage);
     }
     
