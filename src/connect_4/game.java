@@ -18,9 +18,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.Light;
-import javafx.scene.effect.Lighting;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -59,8 +56,12 @@ public class game {
     Rectangle rect;
    static Group root = new Group();
    static Scene scene = new Scene(root, scren_width, scren_hight, Color.BLACK);
+   
     static String player_name1,player_name2;
-    
+    game(){
+        scene.getStylesheets().add("CSS.css");
+          Sign.getStylesheets().add("CSS.css");
+    }
      public static void display_form(Stage primaryStage1){            
 //        image1 = new ImageView("img/form_img/connect4.PNG");
 //        image1.setFitWidth(scren_width-500);
@@ -140,7 +141,7 @@ public class game {
             }
         });
         Signin.getChildren().addAll(mv);
-
+        Signin.getStylesheets().add("connect_4/CSS.css");
         Signin.getChildren().addAll(label,label1,label2,text1,text2,btn);
         primaryStage1.setTitle("Form");
         primaryStage1.setScene(Sign);
@@ -189,7 +190,7 @@ public class game {
                 if(c!=null)
                 root.getChildren().add(c);
 
-//                player_1.cel();
+                player_1.cel();
                 if (player_1.win() || player_2.win()) {
                     if (player_1.win()) {
                         win(player_1.name,player_1,player_2);
@@ -217,7 +218,7 @@ public class game {
                 }
             }
         });
-
+         scene.getStylesheets().add("connect_4/CSS.css");
         primarystatge1.setScene(scene);
         primarystatge1.setTitle("connect_4");
         primarystatge1.show();

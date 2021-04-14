@@ -20,6 +20,7 @@ import javafx.stage.Stage;
  *
  * @author kar
  */
+
 public class music {
         static float v = 0.1f;
         

@@ -52,7 +52,8 @@ public class player {
 //    return pie[piece_id];
     }
     public boolean win(){
-         return vertical(var)||horizontal(var)||diagonal(var);
+//         return vertical(var)||horizontal(var)||diagonal(var);
+           return rightHorizontalDiagonal(var)||rightVerticalDiagonal(var);
     } 
      public boolean horizontal(char var){
         for (int c = 0; c < colum; ++c){
@@ -129,6 +130,47 @@ public class player {
                 return false;
             }
       
+                
+              public boolean rightHorizontalDiagonal(char var){
+            // top left frist 4 vertical diagonal 
+           for (int c = colum-1; c >0; --c){
+            int count = 0;
+              for (int r = 0; r <= row+c-1&&c-r>=0; ++r){
+//                  System.out.println("h:c= "+(c-r)+" r="+r+"/t count = "+count);
+                 // System.out.println("cout :" +count);   //r<row-c -1 becouse if r<7 and nuber of colume = 6 in this case it out garbage 
+                   if (cell[c-r][r] == var){ //R+C TO check all diagonal in vertical
+                       ++count;
+                        
+                       if (count == 4) 
+                       return true;  // win
+                   }
+                   else
+                       count = 0; // reset and count again if not consecutive
+                    } 
+                     
+                      }
+                return false;
+            }
+              
+                public boolean rightVerticalDiagonal(char var){
+            // top right frist 4 vertical diagonal 
+           for (int r = 0; r < row; ++r){
+            int count = 0;
+              for (int c = colum-1,d=0; c >= 0&&r+d<7; --c,++d){   //c<colum-r -1 becouse if r<7 and nuber of colume = 6 in this case it out garbage 
+//                      System.out.println("v"+var+":c= "+c+"/ r"+(d+r)+"/t count = "+count);
+                  if (cell[c][d+r] == var){ //R+C TO check all diagonal in vertical
+                       ++count;
+                   
+                      if (count == 4) 
+                       return true;  // win 
+                   }
+                   else 
+                       count = 0; // reset and count again if not consecutive
+                    } 
+                      
+                      }
+                return false;
+            }
    public void cel(){
        
       for (int i = 0; i < colum ; i++){
