@@ -54,13 +54,8 @@ public class menu{
         exit.setLayoutY(360);
         primaryStage.setTitle("connect four");
         Group root = new Group();
-        Scene scene = new Scene(root, scren_width, scren_hight, Color.BLACK);;
-              scene.setOnMouseReleased(new EventHandler<MouseEvent>() {
-            public void handle(MouseEvent event) {
-                System.out.println(" x"+event.getSceneX()+"\t"+"y"+event.getSceneY());
-               
-            }
-        });
+        Scene scene = new Scene(root, scren_width, scren_hight, Color.BLACK);
+          
         
 
         ImageView mv=new ImageView("img/bg/bg-menu.jpg");

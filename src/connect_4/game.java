@@ -59,7 +59,7 @@ public class game {
    
     static String player_name1,player_name2;
    
-     public static void display_form(Stage primaryStage1){            
+     public static void display_form(Stage primaryStage){            
 //        image1 = new ImageView("img/form_img/connect4.PNG");
 //        image1.setFitWidth(scren_width-500);
 //        image1.setFitHeight(scren_hight-50);
@@ -111,7 +111,20 @@ public class game {
         last_play.setTranslateY(10);
         current_player.setTranslateX((radius * 2*9)+45);
         current_player.setTranslateY(260);
-        
+       
+        Button back = new Button();
+                        back.setText("Back");
+                        back.setId("back");
+                        back.setLayoutX(130);
+                        back.setLayoutY(280);
+                        root.getChildren().add(back);
+//                         menu.men(primaryStage);
+               back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+             menu.men(primaryStage);
+            }
+        }) ;
         
         btn = new Button("Start Game");
         btn.setLayoutX(110);
@@ -131,21 +144,20 @@ public class game {
                     label3.setText("player1 : " + player_name1);
                     label4.setText("player2 : " + player_name2);
                     text1.setText(" "); text2.setText(" ");
-                    play_game(primaryStage1);
-                }else {
-                    System.out.println("You should enter your data");
+                    play_game(primaryStage);
                 }
             }
         });
-        Signin.getChildren().addAll(mv);
+        Signin.getChildren().addAll(mv,back);
         Signin.getStylesheets().add("connect_4/CSS.css");
         Signin.getChildren().addAll(label,label1,label2,text1,text2,btn);
-        primaryStage1.setTitle("Form");
-        primaryStage1.setScene(Sign);
-        primaryStage1.show();
+        primaryStage.setTitle("Form");
+        primaryStage.setScene(Sign);
+        primaryStage.show();
     }
     
-    public static void play_game(Stage primarystatge1) {
+
+    public static void play_game(Stage primarystage) {
         ImageView mv=new ImageView("1.jpg");
     mv.setFitWidth(800);
     mv.setFitHeight(500);
@@ -187,7 +199,7 @@ public class game {
                 if(c!=null)
                 root.getChildren().add(c);
 
-                player_1.cel();
+//                player_1.cel();
                 if (player_1.win() || player_2.win()) {
                     if (player_1.win()) {
                         win(player_1.name,player_1,player_2);
@@ -197,7 +209,7 @@ public class game {
                     boolean playAgain = playAgain();
                     if (playAgain) {
 //                        play(primarystatge1);
-                         display_form(primarystatge1);
+                         display_form(primarystage);
                     } else {
                         Platform.exit();
                     }
@@ -206,7 +218,7 @@ public class game {
                     win("symmetry",player_1,player_2);
                     boolean playAgain = playAgain();
                     if (playAgain) {
-                         display_form(primarystatge1);
+                         display_form(primarystage);
 //                        play(primarystatge1);
                     } else {
                         Platform.exit();
@@ -215,10 +227,23 @@ public class game {
                 }
             }
         });
+         Button back = new Button();
+                        back.setText("BAck");
+                        back.setId("back");
+                        back.setLayoutX(scren_width-100);
+                        back.setLayoutY(scren_hight-100);
+                        root.getChildren().add(back);
+//                         menu.men(primaryStage);
+               back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+             game.display_form(primarystage);
+            }
+        }) ;
          scene.getStylesheets().add("connect_4/CSS.css");
-        primarystatge1.setScene(scene);
-        primarystatge1.setTitle("connect_4");
-        primarystatge1.show();
+        primarystage.setScene(scene);
+        primarystage.setTitle("connect_4");
+        primarystage.show();
     }
 
     public static void win(String name,player frist_player,player second_player) {

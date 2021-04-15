@@ -17,6 +17,8 @@ import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -96,12 +98,19 @@ public class history {
                         back.setId("back");
                         back.setLayoutX(700);
                         back.setLayoutY(20);
+                         back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+               menu.men(primarystatge);
+            }
+        }) ;
               
                  ImageView mv=new ImageView("img/bg/bg-menu-5.jpg");
                 mv.setFitWidth(scren_width );
                 mv.setFitHeight(scren_hight*5);
                 root.getChildren().addAll(mv,back);
                  sp.setContent(root);
+                 
               
              Scene history_scene = new Scene(sp, scren_width, scren_hight, Color.BLACK);
            Label frist,frist_color,second,second_color,stat,dat;
@@ -136,7 +145,7 @@ public class history {
                     ,second_color,stat,dat);
           
             for(int i=0; i<jsonObjectArray.length(); i++){
-                System.out.println(jsonObjectArray.length());
+
                 try {
                     JSONObject jsonObject= jsonObjectArray.getJSONObject(i);
                     Label frist_player,frist_player_color,second_player,second_player_color,status,date;
