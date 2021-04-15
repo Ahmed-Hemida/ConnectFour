@@ -27,7 +27,7 @@ public class music {
 
     
 
-           static  Media music = new Media("file:///C:/Users/DELL/Downloads/Music/music/1.mp3");
+           static  Media music = new Media("file:///D://ahmed//ConnectFour/src/music/talt_dait.mp3");
        static  MediaPlayer mediaplayer = new MediaPlayer(music);
 //      public music() {
 //          mediaplayer.setAutoPlay(true);

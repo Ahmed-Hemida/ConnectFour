@@ -25,11 +25,11 @@ import javafx.stage.Stage;
 public class menu{
      
 
-    static Button option,form,about,exit;
+    static Button option,form,aboutn,log,exit;
    static Label l1,l2,l3,l4,l5,l6,l7;
 
     public static void men(Stage primaryStage){
-        form = new Button();
+           form = new Button();
         form.setText("Start");
         form.setId("btn-start");
         form.setLayoutX(380);
@@ -41,11 +41,17 @@ public class menu{
         option.setLayoutX(366);
         option.setLayoutY(220);
         
+        log = new Button();
+        log.setText("log");
+        log.setId("btn-history");
+        log.setLayoutX(380);
+        log.setLayoutY(280);
+        
         exit = new Button();
         exit.setText("exit");
-         form.setId("btn-exit");
-        exit.setLayoutX(252);
-        exit.setLayoutY(260);
+         exit.setId("btn-exit");
+        exit.setLayoutX(380);
+        exit.setLayoutY(360);
         primaryStage.setTitle("connect four");
         Group root = new Group();
         Scene scene = new Scene(root, scren_width, scren_hight, Color.BLACK);;
@@ -63,11 +69,20 @@ public class menu{
    
     
 
-        option.setOnAction(new EventHandler<ActionEvent>() {
+        log.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 //               music.option(primaryStage);
 //                music.option(primaryStage);
+                history.history_view(primaryStage);
+            }
+        });
+         option.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+//               music.option(primaryStage);
+                music.option(primaryStage);
+              
             }
         });
                
@@ -94,7 +109,7 @@ public class menu{
       
 
         root.getChildren().addAll(mv);
-        root.getChildren().addAll(option,form,exit);
+        root.getChildren().addAll(option,form,log,exit);
 //        root.getChildren().add(mv);
         
         scene.getStylesheets().add("connect_4/CSS.css");

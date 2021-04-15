@@ -58,10 +58,7 @@ public class game {
    static Scene scene = new Scene(root, scren_width, scren_hight, Color.BLACK);
    
     static String player_name1,player_name2;
-    game(){
-        scene.getStylesheets().add("CSS.css");
-          Sign.getStylesheets().add("CSS.css");
-    }
+   
      public static void display_form(Stage primaryStage1){            
 //        image1 = new ImageView("img/form_img/connect4.PNG");
 //        image1.setFitWidth(scren_width-500);

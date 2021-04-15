@@ -1,15 +1,1 @@
-{"date":"2021-03-27","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_1"}
-{"date":"2021-03-27","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_2"}
-{"date":"2021-03-27","frist_player":"ahmed","second_player_color":"Yellow","second_player":"eslam","frist_player_color":"red","status":"eslam"}
-{"date":"2021-03-27","frist_player":"s","second_player_color":"Yellow","second_player":"w","frist_player_color":"red","status":"w"}
-{"date":"2021-03-27","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_2"}
-{"date":"2021-03-27","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_1"}
-{"date":"2021-04-13","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_1"}
-{"date":"2021-04-13","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_1"}
-{"date":"2021-04-14","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_1"}
-{"date":"2021-04-14","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_1"}
-{"date":"2021-04-14","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_1"}
-{"date":"2021-04-14","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_1"}
-{"date":"2021-04-14","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_1"}
-{"date":"2021-04-14","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_2"}
-{"date":"2021-04-14","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_1"}
+{"date":"2021-04-15","frist_player":"player_1","second_player_color":"Yellow","second_player":"player_2","frist_player_color":"red","status":"player_1"}

@@ -30,7 +30,9 @@ Button:pressed {
 /*     -fx-text-fill: black;*/
     -fx-background-insets: 0,50,  60 ,70;
 }
-
+ lable{
+    -fx-text-fill:linear-gradient(to right,#66ccff,#ff00ff,#ff704d);
+}
 /*Button Text {
     -fx-fill: white;
     -fx-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );

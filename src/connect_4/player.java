@@ -52,8 +52,8 @@ public class player {
 //    return pie[piece_id];
     }
     public boolean win(){
-//         return vertical(var)||horizontal(var)||diagonal(var);
-           return rightHorizontalDiagonal(var)||rightVerticalDiagonal(var);
+         return vertical(var)||horizontal(var)||diagonal(var);
+           
     } 
      public boolean horizontal(char var){
         for (int c = 0; c < colum; ++c){
@@ -89,7 +89,7 @@ public class player {
         return false;
     } 
       public boolean diagonal(char var){
-         return leftHorizontalDiagonal(var)|| leftVerticalDiagonal(var);
+         return leftHorizontalDiagonal(var)|| leftVerticalDiagonal(var)||rightHorizontalDiagonal(var)||rightVerticalDiagonal(var);
       }
       public boolean leftHorizontalDiagonal(char var){
             // top left frist 4 vertical diagonal 
