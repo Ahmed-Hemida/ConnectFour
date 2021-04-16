@@ -66,7 +66,7 @@ public class game {
 //        Signin.getChildren().add(image1);
             ImageView mv=new ImageView("2.jpg");
             mv.setFitWidth(300);
-            mv.setFitHeight(500);
+            mv.setFitHeight(600);
         label = new Label("Welcome !");
         label.setLayoutX(100);
         label.setLayoutY(10);
@@ -211,7 +211,7 @@ public class game {
 //                        play(primarystatge1);
                          display_form(primarystage);
                     } else {
-                        Platform.exit();
+                        menu.men(primarystage);
                     }
                 }
                 if (player_1.stock == 0 && player_2.stock == 0) {

@@ -29,7 +29,7 @@ public class music {
         
 
     
-        static    String path = music.class.getResource("../music/talt_dait.mp3").toString();
+        static  String path = music.class.getResource("../music/talt_dait.mp3").toString();
             static  Media music = new Media(path);
            static  MediaPlayer mediaplayer = new MediaPlayer(music);
          
